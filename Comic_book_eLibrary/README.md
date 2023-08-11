@@ -1,14 +1,6 @@
 
 
-This is a multiple user registration comic book elibrary system developed in django.
-
-
-
-To run the project:
-1. Clone the repository
-```bash
-git clone git@github.com:ianemmanuel/Comic_book_eLibrary.git
-```
+This is a multiple user registration comic book elibrary system developed in django```
 2. Install the requirements
 ```bash
 pip install -r requirements.txt
