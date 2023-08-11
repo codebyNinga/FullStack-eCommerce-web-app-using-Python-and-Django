@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cards-list.css' %}" />
+
+<div class="title">
+	<h3>Publishers</h3>
+</div>
+<div class="container">
+	{% if data %}
+		{% for publisher in data %}
+			
+			<div
+				class="slide"
+				style="background-image: url(/media/{{publisher.image}});"
+			>
+				<a href="/publisher-comic-list/{{publisher.id}}"><h3>{{publisher.title}}</h3></a>
+			</div>
+			
+		{% endfor %}
+	{% endif %}
+	
+  </div>
+  
+  <script  src="{% static 'js/cards-list.js' %}"></script>
+
+{% endblock %}

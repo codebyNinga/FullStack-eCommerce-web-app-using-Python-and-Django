@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+		Comic Books
+{% endblock %}
+{% block content %}
+
+<main class="container my-4" id="cartList">
+
+    <h3 class="my-4 border-bottom pb-1">Comic Books ({{totalitems}})</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Comic Book</th>
+
+                <th>Download </th>
+            </tr>
+        </thead>
+        <tbody >
+            {% for event_id,item in cart_data.items %}
+            <tr>
+                <td>
+                    <img src="/media/{{item.image}}" width="50" />
+                    <p>{{item.title}}</p>
+                </td>
+                <td>
+
+                    <!-- <a type="button" href="#" class="btn btn-success" id="btn"><i class="bi bi-download"></i> Download Ticket</a> -->
+                   
+                    <a id="myDIV" type="button" download class="btn btn-success" href="{{comic.comicBook.url}}"><button id="btn" class="btn btn-success"><i class="bi bi-download"></i> Download</button></a>
+                    
+
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <a href="{% url 'home'%}" class="btn btn-primary" id="home1">Done <i class="bi bi-check2"></i></a>
+    <script>
+        var button = document.getElementById("btn");
+        button.onclick = function(){
+        button.setAttribute('disabled','disabled');
+        };
+
+    </script>
+    <!-- <script type="text/javascript" src="{% static 'ticket.js' %}"></script> -->
+</main>
+
+{% endblock %}

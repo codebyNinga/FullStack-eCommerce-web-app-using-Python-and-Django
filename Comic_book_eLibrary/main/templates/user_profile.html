@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}" />
+<section class="home">
+    
+    <div class="image">
+        <img src="{{ page_user.profile_pic.url }}" alt="">
+    </div>
+
+    <div class="content">
+        <h3>{{page_user.user.first_name}} {{page_user.user.last_name}}</h3>
+        {% if user.is_employee %}
+        <span>Comic Book Vendor</span>
+        {% endif %}
+        <p>{{ page_user.bio}}</p>
+        {% if page_user.facebook_url %}
+          <a href="{{ page_user.facebook_url}}" class="btn1"><i class="bi bi-facebook"></i></a>
+          {% endif %}
+          {% if page_user.twitter_url %}
+          <a href="{{ page_user.twitter_url}}" class="btn1"><i class="bi bi-twitter"></i></a>
+          {% endif %}
+          {% if page_user.instagram_url %}
+          <a href="{{ page_user.instagram_url}}" class="btn1"><i class="bi bi-instagram"></i></a>
+          {% endif %}
+          <br>
+        {% if user.id == page_user.user.id%}
+        <a href="{% url 'my_shop' user.id %}" class="btn"> View Shop <i class="bi bi-shop"></i> </a>
+        {% else %} 
+        <a href="{% url 'my_shop' page_user.user.pk %}" class="btn"> View Shop1 <i class="bi bi-shop"></i> </a>
+        {% endif %}
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+
+{% endblock %}
+
+
+
+
