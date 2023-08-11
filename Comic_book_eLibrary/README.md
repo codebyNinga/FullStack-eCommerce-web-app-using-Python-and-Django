@@ -1,6 +1,8 @@
 
 
 This is a multiple user registration comic book elibrary system developed in django```
+
+
 2. Install the requirements
 ```bash
 pip install -r requirements.txt
